@@ -8,11 +8,11 @@ Only supports these features:
  - Ability to record money movements (ie: deposits and withdrawals)
  - View current balance
  - View transaction history
- - Creation of accounts
+ - Create accounts
 
 The id of an account for simplicity will be an auto-incrementing id (int64), which means only 2^64 - 1 accounts can be created.
 There is only a need to return the full transaction history so it does not support filtering the history by dates, transaction types or anything else.
-Also the transaction history is stored in an array so it will be returned in ascending order by the date of the transaction.
+Also the transaction history is stored in an array so it will be returned in ascending order by the order the transaction was created.
 Only two types of transactions are supported: deposits and withdrawals.
 
 
@@ -47,7 +47,7 @@ POST /accounts/:accountId/transactions
 Body: 
 
 {
-    date: string RFC3339 format
+    date: string RFC3339 format (ex: 2025-04-20T15:04:05Z)
     type: string
     amount: float64
 }
